@@ -27,7 +27,7 @@ export default class BtnMain {
             if(this.isClicked){
                 if(!this.isSent){
                     this.isSent = true;
-                    vibrate(300);
+                    this.vibrate(300);
                 }
             }
         }, 3000)
@@ -43,7 +43,6 @@ export default class BtnMain {
     vibrate(duration) {
         if ("vibrate" in navigator) {
             navigator.vibrate(duration);
-            navigator.vibrate([duration]);
         } else {
             alert("Ваше устройство не поддерживает API вибрации.");
         }
