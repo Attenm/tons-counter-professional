@@ -26,8 +26,8 @@ export default class BtnMain {
         setTimeout(() => {
             if(this.isClicked){
                 if(!this.isSent){
-                    vibrate(5000);
                     this.isSent = true;
+                    vibrate(300);
                 }
             }
         }, 3000)
@@ -42,13 +42,7 @@ export default class BtnMain {
 
     vibrate(duration) {
         if ("vibrate" in navigator) {
-            const pulses = Math.floor(duration / 100);
-            const pattern = [];
-            for (let i = 0; i < pulses; i++) {
-                pattern.push(50); // Время вибрации
-                pattern.push(50); // Время паузы между вибрациями
-            }
-            navigator.vibrate(pattern);
+            navigator.vibrate(duration);
         } else {
             alert("Ваше устройство не поддерживает API вибрации.");
         }
