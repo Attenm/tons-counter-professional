@@ -5,13 +5,18 @@
     box-sizing: border-box;
 }
 
+:root{
+   --color-bg: rgb(46, 46, 46);
+}
+
 body {
     font-family: 'Inter', Verdana, sans-serif;
-    font-size: 19px;
+    font-size: 24px;
     }
 
 .app__wrapper{
     min-height: 100vh;
+    padding: 0 20px;
 }
 
 ul {
@@ -33,10 +38,16 @@ ul {
     transform: scale(0.9);
 }
 
+.content{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .summ{
     user-select: none;
     position: absolute;
-    background-color: rgb(37, 37, 37);
+    background-color: var(--color-bg);
     border-radius: 10px;
     padding: 5px;
     bottom: 50px;
@@ -48,5 +59,36 @@ ul {
     font-size: 35px;
 }
 
+.history-list{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.empty {
+    background-color: var(--color-bg);
+    color: white;
+    padding: 10px;
+    align-self: flex-start;
+    border-radius: 10px;
+    user-select: none;
+}
 
 
+.value {
+    outline: none;
+    border: none;
+    display: block;
+    height: 45px;
+    width: 70px;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    background-color: var(--color-bg);
+    color: white;
+    border-radius: 10px;
+}
+
+.value:focus{
+    outline: none;
+}

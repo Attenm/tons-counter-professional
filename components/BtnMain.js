@@ -1,10 +1,10 @@
 
 export default class BtnMain {
     constructor(){
-        this.btnMainHtml = '<div class="btn-main"><span class="summ">90</span></div>';
         this.btnMainElem = null;
-        this.isClicked = false;
-        this.isSent = false;
+        this.value = 0;
+        this.btnMainHtml = `<div class="btn-main"><span class="summ">${this.value}</span></div><div class="content"></div>`;
+        this.timeout = null;
     }
     render(){
         document.querySelector('.app__wrapper').insertAdjacentHTML('beforeend', this.btnMainHtml);
@@ -12,31 +12,30 @@ export default class BtnMain {
         this.handleEvents();
     }
 
+    summ(){
+        const input = document.querySelector('.value');
+        const summ  = document.querySelector('.summ');
+
+        const initValue = +summ.innerText;
+        summ.innerText = initValue + +input.value;
+    }
+
     handleEvents(){
         this.btnMainElem.addEventListener('touchstart', this.handleTouchStart.bind(this));
-        this.btnMainElem.addEventListener('touchend', this.handleTouchEnd);
+        this.btnMainElem.addEventListener('touchend', this.handleTouchEnd.bind(this));
     }
     
     handleTouchStart(e){
-        this.isSent = false;
-        this.isClicked = true;
-        console.log('hello');
         e.target.classList.add('btn-main--active');
 
-        setTimeout(() => {
-            console.log(this.isClicked)
-            console.log(this.isSent)
-            if(this.isClicked){
-                if(!this.isSent){
-                    this.vibrating();
-                    this.isSent = true;
-                }
-            }
-        }, 3000)
+        this.timeout = setTimeout(() => {
+                this.summ();
+                this.vibrating();
+        }, 3000);
     }
     
     handleTouchEnd(e){
-        this.isClicked = false;
+        clearTimeout(this.timeout);
         e.target.removeEventListener('touchstart', this.handleTouchStart);
         e.target.classList.remove('btn-main--active');
     }
@@ -49,4 +48,6 @@ export default class BtnMain {
             alert("Ваше устройство не поддерживает API вибрации.");
         }
     }
+
+
 }
