@@ -26,8 +26,7 @@ export default class BtnMain {
         setTimeout(() => {
             if(this.isClicked){
                 if(!this.isSent){
-                    // vibrate(5000);
-                    console.log('ok')
+                    vibrate(5000);
                     this.isSent = true;
                 }
             }
