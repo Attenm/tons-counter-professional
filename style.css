@@ -1,0 +1,48 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Verdana, sans-serif;
+    font-size: 19px;
+    }
+
+.app__wrapper{
+    min-height: 100vh;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.btn-main {
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    position: relative;
+    top: 30px;
+    background-image: url(./images/btnMain.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.summ{
+    user-select: none;
+    position: absolute;
+    background-color: rgb(37, 37, 37);
+    border-radius: 10px;
+    padding: 5px;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    content: 'Сумма';
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+}
+
+
+
