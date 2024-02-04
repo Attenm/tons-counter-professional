@@ -29,6 +29,10 @@ ul {
     background-size: cover;
 }
 
+.btn-main--active{
+    transform: scale(0.9);
+}
+
 .summ{
     user-select: none;
     position: absolute;
