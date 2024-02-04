@@ -43,6 +43,7 @@ export default class BtnMain {
     vibrate(duration) {
         if ("vibrate" in navigator) {
             navigator.vibrate(duration);
+            navigator.vibrate([duration]);
         } else {
             alert("Ваше устройство не поддерживает API вибрации.");
         }
