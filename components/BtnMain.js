@@ -13,7 +13,7 @@ export default class BtnMain {
     }
 
     handleEvents(){
-        this.btnMainElem.addEventListener('touchstart', this.handleTouchStart);
+        this.btnMainElem.addEventListener('touchstart', this.handleTouchStart.bind(this));
         this.btnMainElem.addEventListener('touchend', this.handleTouchEnd);
     }
     
@@ -24,10 +24,12 @@ export default class BtnMain {
         e.target.classList.add('btn-main--active');
 
         setTimeout(() => {
+            console.log(this.isClicked)
+            console.log(this.isSent)
             if(this.isClicked){
                 if(!this.isSent){
+                    this.vibrating();
                     this.isSent = true;
-                    this.vibrate(300);
                 }
             }
         }, 3000)
@@ -40,7 +42,7 @@ export default class BtnMain {
     }
 
 
-    vibrate(duration) {
+    vibrating(duration = 300) {
         if ("vibrate" in navigator) {
             navigator.vibrate(duration);
         } else {
