@@ -2,22 +2,28 @@
 export default class BtnMain {
     constructor(){
         this.btnMainElem = null;
-        this.value = 0;
-        this.btnMainHtml = `<div class="btn-main"><span class="summ">${this.value}</span></div><div class="content"></div>`;
+        this.total = 0;
         this.timeout = null;
+        this.summElem = null;
     }
     render(){
-        document.querySelector('.app__wrapper').insertAdjacentHTML('beforeend', this.btnMainHtml);
+        if('total' in localStorage){
+            this.total = localStorage.total;
+        }
+        const btnMainHtml = `<div class="btn-main"><span class="summ">${this.total}</span></div><div class="content"></div>`;
+        document.querySelector('.app__wrapper').insertAdjacentHTML('beforeend', btnMainHtml);
         this.btnMainElem = document.querySelector('.btn-main');
+        this.summElem = document.querySelector('.summ');
         this.handleEvents();
     }
 
     summ(){
         const input = document.querySelector('.value');
-        const summ  = document.querySelector('.summ');
+        const initValue = +this.summElem.innerText;
+        const summValue = initValue + +input.value;
 
-        const initValue = +summ.innerText;
-        summ.innerText = initValue + +input.value;
+        this.summElem.innerText = summValue;
+        localStorage.total = summValue;
     }
 
     handleEvents(){
@@ -30,7 +36,7 @@ export default class BtnMain {
 
         this.timeout = setTimeout(() => {
                 this.summ();
-                this.vibrating();
+                // this.vibrating();
         }, 3000);
     }
     

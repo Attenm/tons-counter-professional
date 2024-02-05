@@ -1,12 +1,24 @@
 
 class ValueInput {
     constructor(){
-
+        this.value = 0;
     }
 
     render(){
-        const valueInputHtml = `<input class="value" type="number" value="0">`;
-        document.querySelector('.content').insertAdjacentHTML('beforeend', valueInputHtml)
+        if('valueToAdd' in localStorage){
+            this.value = localStorage.valueToAdd;
+        }
+
+        const valueInputHtml = `<input class="value" type="number" value="${this.value}">`;
+        document.querySelector('.content').insertAdjacentHTML('beforeend', valueInputHtml);
+        this.handleEvent();
+    }
+
+    handleEvent(){
+        document.querySelector('.value').addEventListener('input', (e)=>{
+            const value = +e.target.value;
+            localStorage.valueToAdd = value;
+        });
     }
 }
 
