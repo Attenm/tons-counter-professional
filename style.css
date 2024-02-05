@@ -119,7 +119,7 @@ ul {
 
 .history-item {
     user-select: none;
-    width: 120px;
+    width: 150px;
     height: 40px;
     color: lightslategray;
     display: flex;
