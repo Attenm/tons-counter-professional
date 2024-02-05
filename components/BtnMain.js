@@ -8,9 +8,9 @@ export default class BtnMain {
     }
     render(){
         if('total' in localStorage){
-            this.total = localStorage.total;
+            this.total = +localStorage.total;
         }
-        const btnMainHtml = `<div class="btn-main"><span class="summ">${this.total}</span></div><div class="content"></div>`;
+        const btnMainHtml = `<div class="btn-main"><span class="summ">${this.total.toFixed(1)}</span></div><div class="content"></div>`;
         document.querySelector('.app__wrapper').insertAdjacentHTML('beforeend', btnMainHtml);
         this.btnMainElem = document.querySelector('.btn-main');
         this.summElem = document.querySelector('.summ');
@@ -22,7 +22,7 @@ export default class BtnMain {
         const initValue = +this.summElem.innerText;
         const summValue = initValue + +input.value;
 
-        this.summElem.innerText = summValue;
+        this.summElem.innerText = summValue.toFixed(1);
         localStorage.total = summValue;
     }
 
