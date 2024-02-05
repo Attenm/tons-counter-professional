@@ -23,6 +23,7 @@ class ResetBtn {
             const clear = confirm('Удалить историю?');
             if(clear){
                 localStorage.clear();
+                location.reload()
             }
         }, 2000)
     }
