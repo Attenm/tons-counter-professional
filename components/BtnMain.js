@@ -28,10 +28,10 @@ export default class BtnMain {
 
     handleEvents(){
         this.btnMainElem.addEventListener('touchstart', this.handleTouchStart.bind(this));
-        this.btnMainElem.addEventListener('touchend', this.handleTouchEnd.bind(this));
     }
     
     handleTouchStart(e){
+        this.btnMainElem.addEventListener('touchend', this.handleTouchEnd.bind(this));
         e.target.classList.add('btn-main--active');
 
         this.timeout = setTimeout(() => {
@@ -43,6 +43,7 @@ export default class BtnMain {
     handleTouchEnd(e){
         clearTimeout(this.timeout);
         e.target.removeEventListener('touchstart', this.handleTouchStart);
+        e.target.removeEventListener('touchend', this.handleTouchEnd)
         e.target.classList.remove('btn-main--active');
     }
 

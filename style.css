@@ -92,3 +92,13 @@ ul {
 .value:focus{
     outline: none;
 }
+
+.btn-reset {
+    position: absolute;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    right: 20px;
+    top: 20px;
+    padding: 5px;
+}
