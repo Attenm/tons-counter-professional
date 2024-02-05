@@ -36,15 +36,15 @@ export default class BtnMain {
 
         this.timeout = setTimeout(() => {
                 this.summ();
-                // this.vibrating();
+                this.vibrating();
         }, 3000);
     }
     
     handleTouchEnd(e){
         clearTimeout(this.timeout);
+        e.target.classList.remove('btn-main--active');
         e.target.removeEventListener('touchstart', this.handleTouchStart);
         e.target.removeEventListener('touchend', this.handleTouchEnd)
-        e.target.classList.remove('btn-main--active');
     }
 
 

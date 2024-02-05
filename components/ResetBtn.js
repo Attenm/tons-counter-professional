@@ -1,14 +1,13 @@
 
 class ResetBtn {
     constructor(){
-        this.imageUrl = 'images/reset.svg';
         this.wrapper = document.querySelector('.app__wrapper');
         this.btnResetElem = null;
         this.timeout = null;
     }
 
     render(){
-        this.wrapper.insertAdjacentHTML('beforeend', `<img class="btn-reset" src="${this.imageUrl}">`);
+        this.wrapper.insertAdjacentHTML('beforeend', `<div class="btn-reset"></div>`);
         this.btnResetElem = document.querySelector('.btn-reset');
         this.handleEvents()
     }
@@ -30,8 +29,8 @@ class ResetBtn {
 
     handleTouchEnd(){
         clearTimeout(this.timeot);
-        this.btnResetElem.removeEventListener('touch', this.handleTouchEnd)
-        this.btnResetElem.removeEventListener('touch', this.handleTouchStart)
+        this.btnResetElem.removeEventListener('touchend', this.handleTouchEnd)
+        this.btnResetElem.removeEventListener('touchstart', this.handleTouchStart)
     }
 
 

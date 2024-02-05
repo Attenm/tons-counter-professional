@@ -95,6 +95,8 @@ ul {
 
 .btn-reset {
     position: absolute;
+    background-image: url(images/reset.svg);
+    background-size: cover;
     z-index: 1;
     height: 50px;
     width: 50px;
