@@ -26,9 +26,13 @@ export default class BtnMain {
 
     summ(){
         const input = document.querySelector('.value');
-
+        const inputValue = input.value;
+        if(+inputValue <= 0){
+            alert('Не спать');
+            return;
+        }
         const initValue = +this.summElem.innerText;
-        const summValue = initValue + +input.value;
+        const summValue = initValue + +inputValue;
         let totalSumm = summValue.toFixed(1);
 
         if(totalSumm % 1 === 0){
@@ -37,7 +41,6 @@ export default class BtnMain {
 
         this.summElem.innerText = totalSumm;
         localStorage.total = summValue;
-
         this.saveToHistory(input)
     }
 
