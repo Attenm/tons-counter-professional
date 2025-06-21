@@ -25,7 +25,7 @@ class ResetBtn {
                 localStorage.clear();
                 location.reload()
             }
-        }, 1500)
+        }, 1000)
     }
 
     handleTouchEnd(){

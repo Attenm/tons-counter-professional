@@ -82,7 +82,7 @@ export default class BtnMain {
         this.timeout = setTimeout(() => {
                 this.summ();
                 this.vibrating();
-        }, 1500);
+        }, 1000);
     }
     
     handleTouchEnd(e){
