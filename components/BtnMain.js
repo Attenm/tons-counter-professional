@@ -45,30 +45,30 @@ export default class BtnMain {
     }
 
     saveToHistory(input){
-            const historyListElem = document.querySelector('.history-list');
-            const valueToAdd = +input.value;
-            const date = new Date();
-            const timeStamp = date.getTime();
-            const hours     = date.getHours().toString().padStart(2, '0');
-            const minutes   = date.getMinutes().toString().padStart(2, '0');
-            const fullTime  = `${hours}:${minutes}`;
-            const newHistoryItemHtml = `<li class="history-item">
-                                        <span class="history-item__amount">
-                                        ${valueToAdd}</span>
-                                        ${fullTime}</li>`;
-            if(historyListElem.querySelector('.empty')){
-                historyListElem.innerHTML = '';
-            }
-            historyListElem.insertAdjacentHTML('afterbegin', newHistoryItemHtml);
+        const historyListElem = document.querySelector('.history-list');
+        const valueToAdd = +input.value;
+        const date = new Date();
+        const timeStamp = date.getTime();
+        const hours     = date.getHours().toString().padStart(2, '0');
+        const minutes   = date.getMinutes().toString().padStart(2, '0');
+        const fullTime  = `${hours}:${minutes}`;
+        const newHistoryItemHtml = `<li class="history-item">
+                                    <span class="history-item__amount">
+                                    ${valueToAdd}</span>
+                                    ${fullTime}</li>`;
+        if(historyListElem.querySelector('.empty')){
+            historyListElem.innerHTML = '';
+        }
+        historyListElem.insertAdjacentHTML('afterbegin', newHistoryItemHtml);
 
-            const newHistoryItem = {amount: valueToAdd, timeStamp: timeStamp};
-            if('historyItems' in localStorage){
-                const initHistoryItems = JSON.parse(localStorage.historyItems);
-                const historyItems = [...initHistoryItems, newHistoryItem];
-                localStorage.historyItems = JSON.stringify(historyItems);
-            } else {
-                localStorage.historyItems = JSON.stringify([newHistoryItem]);
-            }
+        const newHistoryItem = {amount: valueToAdd, timeStamp: timeStamp};
+        if('historyItems' in localStorage){
+            const initHistoryItems = JSON.parse(localStorage.historyItems);
+            const historyItems = [...initHistoryItems, newHistoryItem];
+            localStorage.historyItems = JSON.stringify(historyItems);
+        } else {
+            localStorage.historyItems = JSON.stringify([newHistoryItem]);
+        }
     }
 
     handleEvents(){
@@ -82,7 +82,7 @@ export default class BtnMain {
         this.timeout = setTimeout(() => {
                 this.summ();
                 this.vibrating();
-        }, 3000);
+        }, 1500);
     }
     
     handleTouchEnd(e){
