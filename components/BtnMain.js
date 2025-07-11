@@ -83,8 +83,11 @@ export default class BtnMain {
 
         this.timeout = setTimeout(() => {
                 this.summ();
-                this.vibrating();
-                Audi.play();
+                const input = document.querySelector('.value');
+                const inputValue = input.value;
+                if(+inputValue !== 0){
+                    Audi.play();
+                }
         }, 1000);
     }
     
