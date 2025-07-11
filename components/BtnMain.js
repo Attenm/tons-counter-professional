@@ -28,7 +28,7 @@ export default class BtnMain {
         const input = document.querySelector('.value');
         const inputValue = input.value;
         if(+inputValue <= 0){
-            alert('Не спать');
+            alert('Введите значение');
             return;
         }
         const initValue = +this.summElem.innerText;
@@ -96,10 +96,6 @@ export default class BtnMain {
     vibrating(duration = 300) {
         if ("vibrate" in navigator) {
             navigator.vibrate(duration);
-        } else {
-            alert("Ваше устройство не поддерживает API вибрации.");
         }
     }
-
-
 }
