@@ -79,9 +79,12 @@ export default class BtnMain {
         this.btnMainElem.addEventListener('touchend', this.handleTouchEnd.bind(this));
         e.target.classList.add('btn-main--active');
 
+        const Audi = new Audio("./audio/voice_22-06-2025_00-05-15.ogg");
+
         this.timeout = setTimeout(() => {
                 this.summ();
                 this.vibrating();
+                Audi.play();
         }, 1000);
     }
     
