@@ -56,10 +56,17 @@ ul {
     background-image: url(./images/btnMain.png);
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background 1s ease-out;
+    border-radius: 50%;
 }
 
 .btn-main--active{
     transform: scale(0.9);
+}
+
+.btn-main--sucess{
+    background: yellow;
+    transition: background;
 }
 
 .content{

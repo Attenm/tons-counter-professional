@@ -87,6 +87,10 @@ export default class BtnMain {
                 const inputValue = input.value;
                 if(+inputValue !== 0){
                     Audi.play();
+                    this.btnMainElem.classList.add("btn-main--sucess")
+                    const timer = setTimeout(()=>{
+                        this.btnMainElem.classList.remove("btn-main--sucess");
+                    }, 100);
                 }
         }, 1000);
     }
