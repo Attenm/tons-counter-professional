@@ -2,7 +2,7 @@ import BtnMain from "./BtnMain.js";
 import historyList from "./History.js";
 import resetBtn from "./ResetBtn.js";
 import valueInput from "./Value.js";
-import ThemeSwitch from "./ThemeSwich.js";
+import BurgerMenu from "./BurgerMenu/BurgerMenu.js";
 
 export default class App {
     constructor (){
@@ -10,7 +10,7 @@ export default class App {
         this.historyList = historyList;
         this.valueInput = valueInput;
         this.resetBtn = resetBtn;
-        this.themeSwitch = new ThemeSwitch();
+        this.burgerMenu = new BurgerMenu();
     }
 
     init (){
@@ -18,7 +18,7 @@ export default class App {
         this.btnMain.render();
         this.historyList.render();
         this.valueInput.render();
-        this.themeSwitch.render();
+        this.burgerMenu.render();
         this.checkTheme()
     }
 
@@ -28,10 +28,8 @@ export default class App {
             const savedTheme = localStorage.getItem("theme");
             if (savedTheme === "night") {
                 document.body.className = "night";
-                themeToggle.checked = true;
             } else {
                 document.body.className = "day";
-                themeToggle.checked = false;
             }
         });
     }

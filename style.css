@@ -39,12 +39,99 @@ ul {
     list-style-type: none;
 }
 
-#btn-theme_switch {
-    position: absolute;
-    left: 20px;
-    top: 25px;
+
+#toggle-burger_menu{
+    opacity: 0;
+}
+
+.btn-burger_menu{
+    display: flex;
+    align-items: center;
+    height: 26px;
+    width: 26px;
+    position: fixed;
+    top: 20px;
+    left: 27px;
     z-index: 1;
-    transform: scale(2);
+}
+
+
+.btn-burger_menu span,
+.btn-burger_menu span::before,
+.btn-burger_menu span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--main-bg-night);
+}
+
+body.night .btn-burger_menu span,
+body.night .btn-burger_menu span::before,
+body.night .btn-burger_menu span::after {
+    background-color: var(--main-bg-day);
+}
+
+#toggle-burger_menu:checked ~ .btn-burger_menu span {
+  transform: rotate(45deg);
+}
+#toggle-burger_menu:checked ~ .btn-burger_menu span::before {
+  transform: rotate(0);
+  visibility: hidden;
+}
+#toggle-burger_menu:checked ~ .btn-burger_menu span::after {
+    top: 0;
+  transform: rotate(90deg);
+}
+
+.btn-burger_menu span::before{
+    content: '';
+    top: -10px;
+}
+
+.btn-burger_menu span::after{
+    content: '';
+    top: 10px;
+}
+
+#toggle-burger_menu:checked ~ .burger_menu-list {
+  visibility: visible;
+}
+
+.burger_menu-list{
+    border-radius: 5px;
+    display: grid;
+    gap: 15px;
+    position: fixed;
+    visibility: hidden;
+    top: 55px ;
+    left: 20px;
+    width: 40px;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    z-index: 1;
+}
+
+body.night .burger_menu-list{
+    background-color: transparent;
+}
+.burger_menu-item{
+    display: block;
+    min-height: 10px;
+    min-width: 10px;
+}
+
+.burger_menu-item#theme-toggle_btn{
+    background-image: url('images/cuteSprite.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30px;
+    background-position-x: -36px;
+}
+
+body.night .burger_menu-item#theme-toggle_btn{
+    background-position-x: 3px;
 }
 
 .btn-main {
@@ -134,8 +221,8 @@ body.night .value {
     background-image: url(images/reset.svg);
     background-size: cover;
     z-index: 1;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     right: 20px;
     top: 20px;
     padding: 6px;
