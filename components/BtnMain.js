@@ -90,6 +90,7 @@ export default class BtnMain {
                     this.btnMainElem.classList.add("btn-main--sucess")
                     const timer = setTimeout(()=>{
                         this.btnMainElem.classList.remove("btn-main--sucess");
+                        clearTimeout(timer);
                     }, 100);
                 }
         }, 1000);

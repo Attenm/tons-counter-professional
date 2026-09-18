@@ -9,7 +9,7 @@ class ValueInput {
             this.value = localStorage.valueToAdd;
         }
 
-        const valueInputHtml = `<input class="value" type="number" value="${this.value}">`;
+        const valueInputHtml = `<input class="value" id="inputValueToAdd" type="number" value="${this.value}">`;
         document.querySelector('.content').insertAdjacentHTML('beforeend', valueInputHtml);
         this.handleEvent();
     }
